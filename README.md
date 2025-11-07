@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+* **Next.js (App Router)**
+* **OpenRouter API Key (for AI responses)**
+* **Supabase (Auth + Database + Storage)**
 
-## Getting Started
+---
+### README.md (copy–paste into your repo)
 
-First, run the development server:
+```
+# AI Mock Interview Platform  
+**AI Voice-based Interview + Real-time Evaluation + Auto Analysis**
+
+A Next.js based AI Interview Platform where users can:
+- Practice mock interviews (Voice or Text-based)
+- Get real-time feedback & score evaluation
+- View past interview results stored in Supabase
+
+---
+
+## Tech Stack
+
+| Component         | Technology Used |
+|------------------|------------------|
+| Frontend UI      | Next.js (App Router) |
+| Styling          | TailwindCSS |
+| Authentication   | Supabase Auth |
+| Database         | Supabase PostgreSQL |
+| AI Responses     | OpenRouter API (GPT models / LLaMA / etc.) |
+| State Mgmt       | React Context API |
+| Deployment       | Vercel |
+
+---
+
+## Features
+
+**AI-driven mock interview (voice / text)**  
+**Question difficulty adapts based on user response**  
+**Smart evaluation (fluency, clarity, confidence, relevance)**  
+**Stores results & progress in Supabase**  
+**Minimal UI, clean, fast, responsive**
+
+---
+
+## Environment Variables
+
+Create a `.env.local` file in root and add:
 
 ```bash
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# OpenRouter API (Use GPT or LLaMA models)
+OPENROUTER_API_KEY=your_openrouter_api_key
+````
+
+> Never commit `.env.local` to GitHub.
+
+---
+
+## Running the project locally
+
+```sh
+# 1. Install dependencies
+npm install
+
+# 2. Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App launches at:
+[http://localhost:3000/](http://localhost:3000/)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## API Usage Example (OpenRouter)
 
-## Learn More
+```ts
+export async function generateAIResponse(prompt: string) {
+  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`
+    },
+    body: JSON.stringify({
+      model: "gpt-4o-mini",
+      messages: [{ role: "user", content: prompt }]
+    })
+  });
 
-To learn more about Next.js, take a look at the following resources:
+  return response.json();
+}
+```
+---
+## Supabase Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Go to [https://supabase.com](https://supabase.com)
+2. Create new project
+3. Copy Supabase URL & anon key → put into `.env.local`
+4. Create a table:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sql
+create table interviews (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid,
+  question text,
+  answer text,
+  score jsonb,
+  created_at timestamp default now()
+);
+```
+---
+## Deployment (Vercel)
 
-## Deploy on Vercel
+```sh
+vercel deploy
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add same env vars in Vercel project settings.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+
