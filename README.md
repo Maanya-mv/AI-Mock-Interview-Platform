@@ -7,7 +7,7 @@
 
 ```
 # AI Mock Interview Platform  
-**AI Voice-based Interview + Real-time Evaluation + Auto Analysis**
+AI Voice-based Interview + Real-time Evaluation + Auto Analysis
 
 A Next.js based AI Interview Platform where users can:
 - Practice mock interviews (Voice or Text-based)
@@ -15,7 +15,6 @@ A Next.js based AI Interview Platform where users can:
 - View past interview results stored in Supabase
 
 ---
-
 ## Tech Stack
 
 | Component         | Technology Used |
@@ -29,7 +28,6 @@ A Next.js based AI Interview Platform where users can:
 | Deployment       | Vercel |
 
 ---
-
 ## Features
 
 **AI-driven mock interview (voice / text)**  
@@ -39,7 +37,6 @@ A Next.js based AI Interview Platform where users can:
 **Minimal UI, clean, fast, responsive**
 
 ---
-
 ## Environment Variables
 
 Create a `.env.local` file in root and add:
@@ -66,12 +63,10 @@ npm install
 # 2. Start dev server
 npm run dev
 ```
-
 App launches at:
 [http://localhost:3000/](http://localhost:3000/)
 
 ---
-
 ## API Usage Example (OpenRouter)
 
 ```ts
@@ -111,7 +106,6 @@ create table interviews (
 ```
 ---
 ## Deployment (Vercel)
-
 ```sh
 vercel deploy
 ```
