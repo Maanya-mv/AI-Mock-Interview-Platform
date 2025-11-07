@@ -49,9 +49,6 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 # OpenRouter API (Use GPT or LLaMA models)
 OPENROUTER_API_KEY=your_openrouter_api_key
 ````
-
-> Never commit `.env.local` to GitHub.
-
 ---
 
 ## Running the project locally
