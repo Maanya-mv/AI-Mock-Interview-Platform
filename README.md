@@ -26,9 +26,8 @@ A modern, AI-powered mock interview platform that helps users practice and impro
 | Authentication | Supabase Auth |
 | Database | Supabase PostgreSQL |
 | File Storage | Supabase Storage |
-| AI Service | OpenRouter API (GPT-4, LLaMA, etc.) |
+| AI Service | OpenRouter API (Deepseek)|
 | State Management | React Context API |
-| Deployment | Vercel |
 
 ## Prerequisites
 
