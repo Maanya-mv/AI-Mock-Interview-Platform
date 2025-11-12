@@ -3,7 +3,7 @@
 * **Supabase (Auth + Database + Storage)**
 
 ---
-### README.md (copy–paste into your repo)
+### README.md 
 
 ```
 # AI Mock Interview Platform  
