@@ -154,11 +154,3 @@ Add the same environment variables in your Vercel project settings.
   /ui - Reusable UI components
   /interview - Interview-specific components
 ```
-
-## Support
-
-For support and questions, please open an issue in the GitHub repository or contact the development team.
-
-## License
-
-This project is licensed under the MIT License.
